@@ -3,6 +3,8 @@ package com.bridgelabz.employeepayrolljdbc;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Enumeration;
 
@@ -18,6 +20,7 @@ public class BaseClass {
 		employeePayroll.insertEmployeePayroll();
 		employeePayroll.updateEmployeePayroll();
 		employeePayroll.retieveEmployeePayrollData();
+		employeePayroll.employeesWithinDateRange();
 
 	}
 
@@ -52,5 +55,8 @@ public class BaseClass {
 			System.out.println("  " + driver.getClass().getName());
 		}
 	}
+	
+	
+	}
 
-}
+

@@ -52,4 +52,19 @@ public class EmployeePayroll extends BaseClass {
 		System.out.println("Record updated successfully");
 	}
 
+	public void employeesWithinDateRange() throws SQLException {
+		connection = setUpDatabase();
+		String query = "select * from employee_payroll where start_date between cast('2020-01-22' as date) and date(now())";
+		PreparedStatement preparedStatement = connection.prepareStatement(query);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		while (resultSet.next()) {
+			int id = resultSet.getInt(1);
+			String name = resultSet.getString(2);
+			String gender = resultSet.getString(3);
+			double salary = resultSet.getDouble(4);
+			String date = resultSet.getString(5);
+			System.out.println(id + " " + name + " " + gender + " " + salary + " " + date);
+		}
+
+	}
 }
