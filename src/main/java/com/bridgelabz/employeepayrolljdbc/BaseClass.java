@@ -15,6 +15,8 @@ public class BaseClass {
 		listOfDrivers();
 		setUpDatabase();
 		EmployeePayroll employeePayroll = new EmployeePayroll();
+		employeePayroll.insertEmployeePayroll();
+		employeePayroll.updateEmployeePayroll();
 		employeePayroll.retieveEmployeePayrollData();
 
 	}
@@ -50,4 +52,5 @@ public class BaseClass {
 			System.out.println("  " + driver.getClass().getName());
 		}
 	}
+
 }

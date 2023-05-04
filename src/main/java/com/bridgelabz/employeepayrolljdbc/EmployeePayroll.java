@@ -26,4 +26,30 @@ public class EmployeePayroll extends BaseClass {
 
 	}
 
+	public void insertEmployeePayroll() throws SQLException {
+		connection = setUpDatabase();
+		String insertQuery = "Insert into employee_payroll (name, gender, salary, start_date)values(?,?,?,?)";
+		PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+		preparedStatement.setString(1, "Terrisa");
+		preparedStatement.setString(2, "F");
+		preparedStatement.setDouble(3, 2500000.00);
+		preparedStatement.setString(4, "2020-12-26");
+
+		preparedStatement.execute();
+
+		System.out.println("Record added successfully!");
+
+	}
+
+	public void updateEmployeePayroll() throws SQLException {
+		connection = setUpDatabase();
+		String updateQuery = "update employee_payroll set salary = ? where name = ?";
+		PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+		preparedStatement.setDouble(1, 3000000.00);
+		preparedStatement.setString(2, "Terrisa");
+		preparedStatement.execute();
+
+		System.out.println("Record updated successfully");
+	}
+
 }
